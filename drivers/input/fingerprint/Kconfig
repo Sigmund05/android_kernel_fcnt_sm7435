@@ -1,0 +1,9 @@
+config FPC_FINGERPRINT
+	tristate "FPC fingerprint sensor support"
+	depends on GPIOLIB && OF
+	help
+	  This option enables support for Fingerprint Cards fpc1020 sensor
+	  device driver.
+
+	  To compile this driver as a module, choose M here: the module will
+	  be called fpc1020_platform_tee.
