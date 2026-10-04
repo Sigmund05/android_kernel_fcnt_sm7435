@@ -36,7 +36,6 @@
 #include <linux/platform_device.h>
 #include <linux/regulator/consumer.h>
 #include <linux/pinctrl/consumer.h>
-#include <linux/hardware_info.h>
 
 #define FPC_TTW_HOLD_TIME 2000
 #define RESET_LOW_SLEEP_MIN_US 5000
@@ -56,7 +55,6 @@
 #define START_IRQS_RECEIVED_CNT "start_irqs_received_counter"
 
 #define CONFIG_FPC_COMPAT 1
-extern void get_hardware_info_data(enum hardware_id id, const void *data);
 
 static const char * const pctl_names[] = {
 	"fpc1020_reset_reset",
@@ -504,7 +502,6 @@ static ssize_t compatible_all_set(struct device *dev,
 	dev_err(dev, "compatible all enter %d\n", fpc1020->compatible_enabled);
 	if (!strncmp(buf, "enable", strlen("enable")) &&
 	    fpc1020->compatible_enabled != 1) {
-		get_hardware_info_data(HWID_FINGERPRINT, "fpc1020");
 		rc = fpc1020_request_named_gpio(fpc1020, "fpc,gpio_irq",
 			&fpc1020->irq_gpio);
 		if (rc)
@@ -601,7 +598,6 @@ static ssize_t compatible_all_set(struct device *dev,
 		}
 		devm_free_irq(dev, gpio_to_irq(fpc1020->irq_gpio), fpc1020);
 		fpc1020->compatible_enabled = 0;
-		get_hardware_info_data(HWID_FINGERPRINT, "Not Found");
 	}
 	return count;
 exit:
