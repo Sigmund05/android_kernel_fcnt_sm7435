@@ -21,4 +21,17 @@ config USB_REDRIVER_NB7VPQ904M
 	  it have i2c program interface.
 	  Say Y/M here if you want to support it.
 
+config USB_REDRIVER_PS5169
+	tristate "Parade PS5169 USB Type-C linear redriver"
+	depends on I2C
+	select REGMAP_I2C
+	select USB_REDRIVER
+	help
+	  This driver supports the Parade PS5169, a linear redriver for
+	  USB 3.2 and DisplayPort signals on USB Type-C ports, which is
+	  controlled over I2C.
+
+	  This driver can also be built as a module. If so, the module
+	  will be called ps5169.
+
 endmenu
