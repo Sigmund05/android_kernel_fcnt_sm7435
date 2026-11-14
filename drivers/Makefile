@@ -189,6 +189,3 @@ obj-$(CONFIG_GNSS)		+= gnss/
 obj-$(CONFIG_INTERCONNECT)	+= interconnect/
 obj-$(CONFIG_COUNTER)		+= counter/
 obj-$(CONFIG_MOST)		+= most/
-obj-$(CONFIG_HYBRIDSWAP_ZRAM)		+= moto_mm/
-obj-$(CONFIG_HYBRIDSWAP_ZRAM)		+= moto_mmap_fault/
-obj-$(CONFIG_HYBRIDSWAP_ZRAM)		+= moto_swap/
