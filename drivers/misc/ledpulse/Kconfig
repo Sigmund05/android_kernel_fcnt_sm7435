@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: GPL-2.0-only
+#
+# MAX30101 LEDPULSE driver configuration
+#
+
+config LEDPULSE_MAX30101
+	tristate "LEDPULSE_MAX30101_I2C_Driver"
+	help
+	  Support for LEDPULSE_MAX30101 driver IC, using this driver,
+	  user can set different values to control this
+
+	  Say m if you want to enable ISL97900 driver.
