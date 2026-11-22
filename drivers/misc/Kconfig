@@ -502,6 +502,20 @@ config KINECTICS_XR_NORDIC
 	   this also parses the gpios and interrupts from device tree and sets
 	   the gpios and interrupt handler for handling the interrupt.
 
+config FPC1020
+	tristate "Fingerprint Cards FPC1020 fingerprint sensor"
+	depends on GPIOLIB || COMPILE_TEST
+	help
+	  Say Y here to enable support for the Fingerprint Cards FPC1020
+	  fingerprint sensor.
+
+	  The sensor is accessed over SPI by the Trusted Execution
+	  Environment (TEE), so this driver only controls its power and
+	  reset lines and exposes its interrupt to userspace via sysfs.
+
+	  To compile this driver as a module, choose M here: the module
+	  will be called fpc1020.
+
 source "drivers/misc/rtimd-i2c/Kconfig"
 source "drivers/misc/c2port/Kconfig"
 source "drivers/misc/eeprom/Kconfig"
